@@ -33,7 +33,7 @@ class StoreController extends AbstractController
     public function listProduit(ProductRepository $repo): Response
     {
         $products = $repo->findAll();
-        dd($products);
+       // dd($products);
         return $this->render('store/product.html.twig', [
             'products' => $products,
         ]);
@@ -94,7 +94,7 @@ class StoreController extends AbstractController
             $manager->persist($category);
             // valide l'ecriture dans la base
             $manager->flush();
-            return $this->redirectToRoute('index');
+            return $this->redirectToRoute('store');
         }
         // Si non génération de la page formulaire vide
         return $this->render('store/form_category.html.twig', [

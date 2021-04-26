@@ -5,12 +5,12 @@
 
 {% block body %}
 	<section>
-		<h2>les produits de la categorie :
-		</h2>
+		<h1>les produits :
+		</h1>
 		{# viens de controller detailProduct  #}
 		{% for product in products %}
 			<article>
-				<h2>Produit detail :
+				<h2>
 					{{ product.name }}</h2>
 				{# {% if product.category is null %} #}
 					<div class="metainfo">
@@ -20,8 +20,8 @@
 				{# {% endif %} #}
 
 				<div>Quantité :
-					{{ product.quantite }}</div>
-				<p>prix :
+					{{ product.quantite }} en stock</div>
+				<p>Prix :
 					{{ product.unitprice }}
 					euros</p>
 				<a href="{{ path('delete_prod', {'id':product.id})}}" class="btn btn-primary">
@@ -31,7 +31,10 @@
 			</article>
 
 		{% endfor %}
-		<a href="{{ path('new_product') }}" class="btn btn-info">
+		<br>
+		<a href="{{ path('new_product') }}" class="btn btn-warning">
 			nouveau produit</a>
 	</section>
+
+	<br><br>
 {% endblock %}

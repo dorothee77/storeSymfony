@@ -8,12 +8,9 @@
 		{# viens de controller detailCategory  #}
 		{% for category1 in category %}
 			<article>
-				<h2>Categories index:
+				<h2>Pour la categorie :
 					{{ category1.name }}</h2>
-				<div class="metainfo">
-					la categorie
-					<strong>{{ category1.name }}</strong>
-				</div>
+				
 
 
 				<a href="{{ path('delete_cat', {'id':category1.id})}}" class="btn btn-primary">
@@ -23,7 +20,9 @@
 			</article>
 
 		{% endfor %}
-		<a href="{{ path('new_category') }}" class="btn btn-info">
+		<br>
+		<a href="{{ path('new_category') }}" class="btn btn-warning">
 			nouvelle category</a>
 	</section>
+	<br><br>
 {% endblock %}
