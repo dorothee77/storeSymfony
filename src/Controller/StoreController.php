@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Category;
 use App\Entity\Product;
 use App\Form\CategoryType;
+use App\Form\ProductType;
 use App\Repository\CategoryRepository;
 use App\Repository\ProductRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -74,11 +75,13 @@ class StoreController extends AbstractController
 
      /**
      * @Route("/store/category/add/{id}", name="add_category")
+     * @Route("/store/category/new", name="new_category")
      */
-    public function addCategory(Category $category, EntityManagerInterface $manager, Request $requete){
-        // initialisation de la category
-        $category = new Category();
-        
+    public function addCategory(Category $category=null, EntityManagerInterface $manager, Request $requete){
+        if(!$category){
+            // initialisation de la category
+            $category = new Category();
+        }
             
         // manager pour ecrire sur la base de donnée
         $form = $this->createForm(CategoryType::class, $category);
@@ -90,7 +93,7 @@ class StoreController extends AbstractController
             $manager->persist($category);
             // valide l'ecriture dans la base
             $manager->flush();
-            return $this->redirectToRoute('detail_art',[
+            return $this->redirectToRoute('detail_category',[
                 'id' => $category->getId()
             ]);
         }
@@ -99,8 +102,39 @@ class StoreController extends AbstractController
                 'formCategory' => $form->createView()
             ]);
     }
+
+         /**
+     * @Route("/store/product/add/{id}", name="add_product")
+     * @Route("/store/product/new", name="new_product")
+     */
+    public function addProduct(Product $product=null, EntityManagerInterface $manager, Request $requete){
+        if(!$product){
+
+            // initialisation de product
+            $product = new Product();
+        }
+            
+        // manager pour ecrire sur la base de donnée
+        $form = $this->createForm(ProductType::class, $product);
+        // envoi les valeurs par le POST
+        $form->handleRequest($requete);
+        // Si le form est soumis et valide  envoi sur la base
+        if ($form->isSubmitted() && $form->isValid()){
+            // requet insert into en attente dans server de la base
+            $manager->persist($product);
+            // valide l'ecriture dans la base
+            $manager->flush();
+            return $this->redirectToRoute('prod');
+        }
+        // Si non génération de la page formulaire vide
+        return $this->render('store/form_product.html.twig', [
+                'formProduct' => $form->createView()
+            ]);
+    }
+
+
      /**
-     * @Route("/store/deletecat/{category.id}", name="delete_cat")
+     * @Route("/store/deletecat/{id}", name="delete_cat")
      */
     public function deleteCategory(Category $category, EntityManagerInterface $manager) {
         //$manager = $this->getDoctrine()->getManager();

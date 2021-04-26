@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Formulaire pourProduits
+{% endblock %}
+{% block body %}
+
+	{{ form_start(formProduct) }}
+
+	{{ form_row(formProduct.name,{'label':"Nom du produit ", 'attr':{'placeholder':"Entrer le nom du produit"}}
+	) }}
+	{{ form_row(formProduct.category,{'label':"Votre categorie ", 'attr':{'placeholder':"Entrer le nom de la categorie"}}
+	) }}
+	{{ form_row(formProduct.quantite,{'label':"Quantité ", 'attr':{'placeholder':"la quantité"}}
+	) }}
+	{{ form_row(formProduct.unit_price,{'label':"Prix ", 'attr':{'placeholder':"le prix"}}
+	) }}
+	<button type="submit" class="btn btn-primary">Envoyer le formulaire</button>
+	{{ form_end(formProduct) }}
+{% endblock %}
