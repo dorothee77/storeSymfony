@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Formulaire pour category
+{% endblock %}
+{% block body %}
+	<h2>Formulaire des categories</h2>
+
+	{{ form_start(formCategory) }}
+	{{ form_row(formCategory.name,{'label':"votre categorie", 'attr':{'placeholder':"Entrer le nom de la categorie"}}
+	) }}
+
+	
+
+	<button type="submit" class="btn btn-primary">Envoyer le formulaire</button>
+	{{ form_end(formCategory) }}
+
+{% endblock %}

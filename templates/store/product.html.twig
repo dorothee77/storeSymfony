@@ -1,0 +1,25 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Ma boutique: produits
+{% endblock %}
+
+{% block body %}
+<section>
+<h2>les produits de la categorie : </h2>
+		{# viens de controller detailProduct  #}
+		 {% for product1 in product %}
+			<article>
+				<h2>Produit detail : {{ product1.name }}</h2>
+             	<div class="metainfo"> la categorie
+					<strong>{{ product1.category.name }}</strong>
+				</div>
+
+				<div>Quantité : {{ product1.quantite }}</div>
+				<p>prix : {{ product1.unitprice }} euros</p>
+			    			    <a href="{{ path('delete_prod', {'id':product1.id})}}" class="btn btn-primary">
+			    Delete</a>
+			</article>
+
+		{% endfor %} 
+	</section> 
+{% endblock %}
