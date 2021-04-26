@@ -1,22 +1,25 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Ma boutique : les categories{% endblock %}
+{% block title %}Ma boutique : les categories
+{% endblock %}
 
 {% block body %}
-<section>
+	<section>
 		{# viens de controller detailCategory  #}
 		{% for category1 in category %}
 			<article>
-				<h2>Categories index: {{ category1.name }}</h2>
-             	<div class="metainfo"> la categorie
+				<h2>Categories index:
+					{{ category1.name }}</h2>
+				<div class="metainfo">
+					la categorie
 					<strong>{{ category1.name }}</strong>
 				</div>
 
-			
-			    <a href="{{ path('delete_cat', {'id':category1.id})}}" class="btn btn-primary">
-			    Delete</a>
-				<a href="{{ path('new_category') }}" class="btn btn-info">
-			modifier category</a>
+
+				<a href="{{ path('delete_cat', {'id':category1.id})}}" class="btn btn-primary">
+					Delete</a>
+				<a href="{{ path('add_category', {'id':category1.id}) }}" class="btn btn-info">
+					modifier category</a>
 			</article>
 
 		{% endfor %}
