@@ -10,10 +10,9 @@
 			<article>
 				<h2>Pour la categorie :
 					{{ category1.name }}</h2>
-				
 
 
-				<a href="{{ path('delete_cat', {'id':category1.id})}}" class="btn btn-primary">
+				<a href="{{ path('delete_cat', {'id':category1.id}) }}" class="btn btn-primary">
 					Delete</a>
 				<a href="{{ path('add_category', {'id':category1.id}) }}" class="btn btn-info">
 					modifier category</a>
