@@ -17,3 +17,8 @@ console.log('A bientôt');
 
 ```
 
+```javascript
+var prenom = 'quentin';
+console.log('bonjour ' + prenom);
+```
+
