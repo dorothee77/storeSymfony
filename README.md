@@ -10,7 +10,7 @@ boutique avec symfony Bugg dans category
 # titre avec sharp
 ## titre avec deux sharp
 
-[git text] (https://github.com/Simplonline-foad)!
+[git text](https://github.com/Simplonline-foad/utiliser-markdown)!
 
 ```javascript
 var prenom = 'quentin';
