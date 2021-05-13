@@ -10,4 +10,10 @@ titre
 ## titre avec deux sharp
 . 
   ......;..*    knnjjk
+  
+  ```
+console.log('Bonjour');
+console.log('A bientôt');
+
+```
 
