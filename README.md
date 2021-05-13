@@ -49,9 +49,7 @@ Que Charlemagne aidé des douze pairs de France.
 Tu crois qu’il y travaille, et qu’au long de ce mur
 Peut-être en ce moment il prend Mons et Namur.
 
-
-
 (Epître XI)
 
-Nicolas Boileau, Epîtres
-------------------------------------------
+> Nicolas Boileau, Epîtres
+
